@@ -1,12 +1,300 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=g, initial-scale=1.0">
-    <title>Test1 Commit</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Windel — Roblox Scripter</title>
+  <meta name="description" content="Roblox scripter portfolio — games, systems, services and contact." />
+  <style>
+    /* Reset & base */
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa6b2; --accent:#7dd3fc; --glass: rgba(255,255,255,0.04);
+      --radius:14px; --ease:cubic-bezier(.2,.9,.2,1);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#071024 0%,#07101a 60%);color:#e6eef6;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+      line-height:1.45;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;
+    }
+
+    /* Shell */
+    .site{width:100%;max-width:var(--maxw);} 
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04202a}
+    .brand h1{margin:0;font-size:20px;letter-spacing:0.4px}
+    nav{display:flex;gap:10px}
+    .navlink{background:transparent;border:0;color:var(--muted);padding:8px 12px;border-radius:10px;cursor:pointer}
+    .navlink.active{color:white;background:linear-gradient(90deg, rgba(255,255,255,0.04), rgba(125,211,252,0.03))}
+
+    /* Main area */
+    .frame{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:18px;box-shadow: 0 6px 24px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+    .content{min-height:62vh;overflow:hidden;position:relative}
+
+    /* Page panels (SPA) */
+    .panel{position:absolute;inset:0;padding:18px;overflow:auto;border-radius:12px;transform-origin:50% 10%;transition:all 500ms var(--ease);opacity:0;transform:translateY(18px) scale(.995);pointer-events:none}
+    .panel.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+
+    /* Grid */
+    .hero{display:flex;gap:22px;align-items:center}
+    .hero-left{flex:1}
+    .hero-right{width:280px}
+    .badge{display:inline-block;background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--accent);font-weight:600}
+    h2{margin:8px 0 6px}
+    p.lead{color:var(--muted);margin:0 0 16px}
+
+    /* Cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-height:120px}
+    .card h3{margin:0 0 6px}
+    .metric{font-weight:700;color:var(--accent)}
+
+    /* Projects list */
+    .project{display:flex;gap:12px;align-items:center}
+    .thumb{width:84px;height:56px;border-radius:8px;background:#07172a;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px}
+
+    /* Contact */
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:linear-gradient(90deg,var(--accent),#60a5fa);padding:10px 14px;border-radius:12px;color:#012431;font-weight:700;border:0;cursor:pointer}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px 14px;border-radius:12px;color:var(--muted)}
+
+    /* Footer */
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+
+    /* Small screens */
+    @media (max-width:720px){
+      .hero{flex-direction:column}
+      .hero-right{width:100%}
+      body{padding:18px}
+    }
+
+    /* Nice micro-interactions */
+    .navlink:hover{transform:translateY(-2px)}
+    .card:hover{transform:translateY(-6px);transition:all 260ms var(--ease)}
+
+    /* Smooth page transition tweak: fade out old and blur */
+    .panel.leave{opacity:0;transform:translateY(12px) scale(.998);filter:blur(2px);transition:all 360ms var(--ease)}
+  </style>
 </head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    <p>This is a simple portfolio page.</p>
+  <div class="site">
+    <header>
+      <div class="brand">
+        <div class="logo">W</div>
+        <div>
+          <h1>Windel</h1>
+          <div style="font-size:12px;color:var(--muted)">Roblox Scripter / Programmer</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <button class="navlink active" data-page="home">Home</button>
+        <button class="navlink" data-page="work">Work</button>
+        <button class="navlink" data-page="about">About</button>
+        <button class="navlink" data-page="contact">Contact</button>
+      </nav>
+    </header>
+
+    <main class="frame">
+      <div class="content" id="content">
+
+        <!-- HOME -->
+        <section id="home" class="panel show" aria-labelledby="home-title">
+          <div class="hero">
+            <div class="hero-left">
+              <span class="badge">5 years</span>
+              <h2 id="home-title">Roblox systems, frameworks & scripts</h2>
+              <p class="lead">Organised, modular and readable code. I ship secure systems with clean APIs so they are easy to expand and maintain.</p>
+
+              <div class="grid">
+                <div class="card">
+                  <h3>Movement System</h3>
+                  <div class="metric">Custom animations · sprint · camera FX</div>
+                </div>
+                <div class="card">
+                  <h3>Party System</h3>
+                  <div class="metric">Secure teleports · dynamic parties</div>
+                </div>
+                <div class="card">
+                  <h3>Leaderboard & Badges</h3>
+                  <div class="metric">OrderedDataStore · rewards</div>
+                </div>
+                <div class="card">
+                  <h3>Saving & Upgrades</h3>
+                  <div class="metric">Datastore-safe · progressive upgrades</div>
+                </div>
+              </div>
+
+            </div>
+
+            <aside class="hero-right">
+              <div class="card" style="text-align:center">
+                <div style="font-size:13px;color:var(--muted)">Featured game</div>
+                <div style="font-weight:800;margin:8px 0">Brainrot Tower Defense</div>
+                <div style="color:var(--muted);font-size:13px">150k+ Visits</div>
+                <div style="margin-top:12px;display:flex;justify-content:center;gap:8px">
+                  <button class="btn" onclick="openExternal('https://roblox.com/catalog')">View on Roblox</button>
+                  <button class="ghost" onclick="showPage('contact')">Hire me</button>
+                </div>
+              </div>
+              <div style="height:12px"></div>
+              <div class="card">
+                <h3>Some of my systems</h3>
+                <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+                  <li>Custom movement & camera</li>
+                  <li>Save/load & leaderboards</li>
+                  <li>Party/teleport system</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- WORK -->
+        <section id="work" class="panel" aria-labelledby="work-title">
+          <h2 id="work-title">Games I've scripted</h2>
+          <p class="lead">A selection of projects, with a short explainer of what I implemented.</p>
+
+          <div class="grid" style="margin-top:12px">
+            <div class="card project">
+              <div class="thumb">BR</div>
+              <div>
+                <h3>Brainrot Tower Defense</h3>
+                <div style="color:var(--muted);font-size:13px">Systems: Economy, waves, leaderboard, enemy AI</div>
+              </div>
+            </div>
+
+            <div class="card project">
+              <div class="thumb">YS</div>
+              <div>
+                <h3>Yapping Simulator</h3>
+                <div style="color:var(--muted);font-size:13px">Systems: progression, music-synced events, challenges</div>
+              </div>
+            </div>
+
+            <div class="card project">
+              <div class="thumb">DS</div>
+              <div>
+                <h3>Duck Survival Game</h3>
+                <div style="color:var(--muted);font-size:13px">Systems: saving, levelling, matchmaking</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px">
+            <h3>Some code samples</h3>
+            <div class="card" style="overflow:auto">
+<pre style="margin:0;background:transparent;color:var(--muted);font-size:13px">-- Example: safe remote invocation (server)
+local Remotes = game.ReplicatedStorage:WaitForChild('Remotes')
+local function onRequest(player, action, args)
+  if not player or typeof(action) ~= 'string' then return end
+  -- validation & rate limits here
+end
+Remotes.OnRequest.OnServerEvent:Connect(onRequest)</pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="panel" aria-labelledby="about-title">
+          <h2 id="about-title">About</h2>
+          <p class="lead">I write maintainable server & client code, focusing on secure patterns and modular architecture.</p>
+
+          <div class="grid">
+            <div class="card">
+              <h3>Organised Systems & Frameworks</h3>
+              <p style="color:var(--muted);margin:6px 0 0">I structure systems so each responsibility is separated. That makes features easier to add and bugs easier to fix.</p>
+            </div>
+            <div class="card">
+              <h3>Readable & Documented Code</h3>
+              <p style="color:var(--muted);margin:6px 0 0">I add clear variable names and in-line comments so other devs can onboard quickly.</p>
+            </div>
+            <div class="card">
+              <h3>Availability</h3>
+              <p style="color:var(--muted);margin:6px 0 0">Commissions / Part-time. Payment: Robux or PayPal. Free fixes for 1 week after delivery.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="panel" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact</h2>
+          <p class="lead">DM on Discord: <strong>@windeldev</strong> — or drop a message below.</p>
+
+          <form id="contactForm" style="margin-top:12px;display:grid;gap:8px;max-width:680px">
+            <input name="name" placeholder="Your name" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
+            <input name="email" placeholder="Email / Discord" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
+            <textarea name="message" placeholder="Brief description (what you need)" rows="4" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
+            <div style="display:flex;gap:8px">
+              <button class="btn" type="button" onclick="submitForm()">Send message</button>
+              <button class="ghost" type="button" onclick="openExternal('https://discord.com')">Open Discord</button>
+            </div>
+          </form>
+
+        </section>
+
+      </div>
+      <footer>
+        Built with care · Designed referencing Windel's Carrd
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Simple SPA page switching with smooth transitions
+    const navlinks = document.querySelectorAll('.navlink');
+    function showPage(page){
+      navlinks.forEach(n=>n.classList.toggle('active', n.dataset.page===page));
+      const panels = document.querySelectorAll('.panel');
+      const inPanel = document.getElementById(page);
+      panels.forEach(p=>{
+        if(p===inPanel){
+          p.classList.remove('leave');
+          requestAnimationFrame(()=>p.classList.add('show'));
+        } else if(p.classList.contains('show')){
+          p.classList.remove('show');
+          p.classList.add('leave');
+          // remove leave after animation
+          setTimeout(()=>p.classList.remove('leave'),360);
+        } else {
+          p.classList.remove('show');
+        }
+      })
+      // update URL hash for deep-linking
+      history.replaceState(null, '', '#'+page);
+    }
+
+    navlinks.forEach(b=>b.addEventListener('click', ()=>showPage(b.dataset.page)));
+
+    // On load, check hash
+    (function initFromHash(){
+      const page = location.hash.replace('#','') || 'home';
+      const exists = document.getElementById(page);
+      if(exists) showPage(page);
+    })();
+
+    function submitForm(){
+      const f = document.getElementById('contactForm');
+      const data = new FormData(f);
+      // here you'd usually POST to a form endpoint - for demo we just show an alert
+      alert('Thanks! Message captured (demo). Name: '+(data.get('name')||'—'));
+      f.reset();
+    }
+
+    function openExternal(url){
+      window.open(url, '_blank');
+    }
+
+    // Small accessibility enhancement: keyboard nav
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === '1') showPage('home');
+      if(e.key === '2') showPage('work');
+      if(e.key === '3') showPage('about');
+      if(e.key === '4') showPage('contact');
+    })
+  </script>
 </body>
 </html>
