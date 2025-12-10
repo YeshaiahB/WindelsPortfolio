@@ -1,0 +1,23 @@
+body {
+    background-image: url(../assets/images/MainImage.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: rgb(68, 67, 67);
+}
+
+.Home {
+     color: white;
+     padding-left: 8%;
+     padding-top: 12%;
+}
+.Home h1 {font-family:'Franklin Gothic Medium', 'Arial bold', Arial, sans-serif}
+
+#ProfileIMG {
+    border-radius: 180px;
+    border-style: solid;
+    border-width: 2.5px;
+    border-color: black;
+    clip-path: circle();
+    width: 15%;
+}
