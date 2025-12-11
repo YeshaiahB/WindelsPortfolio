@@ -1,0 +1,194 @@
+/* StyleSheet Specific to the home page */
+.Home {
+     color: white;
+     padding-top: 4%;
+     text-align: center;
+     transition: 0.5s;
+}
+.Home h1,h2 {
+    font-family:'Franklin Gothic Medium', 'Arial bold', Arial, sans-serif;
+    transition: 0.5s;
+}
+
+.Home button {
+    background: none;
+
+    min-width: 80%;
+    min-height: 40px;
+    width: auto;
+    height: auto;
+
+    text-align: center;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    
+
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+
+    transition: 0.5s;
+}
+
+.Home button:hover {
+    color: lab(76.08% 21.33 79.71);
+    border-color: lab(76.08% 21.33 79.71);
+    transition: 0.5s;
+}
+
+.Home #Summary {
+    display: inline-block;
+    background-color: rgba(36, 75, 38, 0.856);
+    border-radius: 5px;
+
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.288);
+
+    min-width: 50%;
+    height: auto;
+
+    justify-content: center;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    transition: 0.5s;
+}
+.Home hr {
+    width: 85%;
+    transition: 0.5s;
+}
+
+.Home b {
+    color: lightblue;
+    transition: 0.5s;
+}
+
+.GameDisplayBox {
+    text-align: center;
+    display: inline-block;
+    min-width: 70%;
+    min-height: 280px;
+    height: auto;
+    width: auto;
+    background-color: rgb(47, 48, 47);
+
+    border-radius: 16px;
+
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    transition: 0.5s;
+}
+
+.GameDisplayBox ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    transition: 0.5s;
+}
+
+.GameDisplayBox li {
+    float: left;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.GameDisplayBox img {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 80%;
+    height: 200px;
+    border-radius: 15px;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    transition: 0.5s;
+}
+
+.GameDisplayBox a:hover {
+    font-size: 25px;
+    color: orange;
+    transition: 0.5s;
+}
+
+.Skills {
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+
+    background-color: rgb(47, 48, 47);
+
+    min-width: 70%;
+    width: 70%;
+
+    min-height: 50px;
+    height: auto;
+
+    border-radius: 10px;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.Skills ul {
+    list-style-type: none;
+    display: flex;
+    transition: 0.5s;
+    justify-content: center;
+}
+
+.Skills li {
+    float: left;
+    transition: 0.5s;
+}
+
+.Skills img {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 70%;
+    height: 80px;
+    transition: 0.5s;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+#Summary a:hover {
+    font-size: 20px;
+    transition: 0.5s; 
+}
+
+a:hover {
+    /* font-size: 20px; */
+    transition: 0.5s;
+}
+
+@media (max-width: 800px){
+
+    .GameDisplayBox ul {
+        display: block;
+    }
+
+    .Skills ul {
+       display: block;
+    }
+
+    .Skills li {
+        margin-left: 15px;
+        margin-right: 9px;
+        margin-bottom: 5px;
+    }
+
+    .Skills img {
+        width: 70%;
+        height: 40px;
+    }
+}
