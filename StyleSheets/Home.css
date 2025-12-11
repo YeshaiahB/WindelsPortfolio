@@ -3,8 +3,12 @@
      color: white;
      padding-top: 4%;
      text-align: center;
+     transition: 0.5s;
 }
-.Home h1,h2 {font-family:'Franklin Gothic Medium', 'Arial bold', Arial, sans-serif}
+.Home h1,h2 {
+    font-family:'Franklin Gothic Medium', 'Arial bold', Arial, sans-serif;
+    transition: 0.5s;
+}
 
 .Home button {
     background: none;
@@ -24,11 +28,14 @@
     border-style: solid;
     border-color: white;
     border-radius: 80px;
+
+    transition: 0.5s;
 }
 
 .Home button:hover {
     color: lab(76.08% 21.33 79.71);
     border-color: lab(76.08% 21.33 79.71);
+    transition: 0.5s;
 }
 
 .Home #Summary {
@@ -47,13 +54,16 @@
     text-align: center;
     margin-left: 15%;
     margin-right: 15%;
+    transition: 0.5s;
 }
 .Home hr {
     width: 85%;
+    transition: 0.5s;
 }
 
 .Home b {
     color: lightblue;
+    transition: 0.5s;
 }
 
 .GameDisplayBox {
@@ -70,6 +80,7 @@
     border: 2px;
     border-color: black;
     border-style: solid;
+    transition: 0.5s;
 }
 
 .GameDisplayBox ul {
@@ -77,11 +88,13 @@
     margin: 0;
     padding: 20px;
     text-align: center;
+    transition: 0.5s;
 }
 
 .GameDisplayBox li {
     float: left;
     padding: 10px;
+    transition: 0.5s;
 }
 
 .GameDisplayBox img {
@@ -94,11 +107,17 @@
     border: 2px;
     border-style: solid;
     border-color: black;
-
+    transition: 0.5s;
 }
 
 .GameDisplayBox a:hover {
     font-size: 25px;
+    color: orange;
+    transition: 0.5s;
+}
+
+.Skills {
+    display: inline-block;
 }
 
 a {
