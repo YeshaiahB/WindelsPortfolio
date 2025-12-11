@@ -118,6 +118,42 @@
 
 .Skills {
     display: inline-block;
+    text-align: center;
+
+    background-color: rgb(47, 48, 47);
+
+    min-width: 70%;
+    width: 70%;
+
+    min-height: 50px;
+    height: auto;
+
+    border-radius: 10px;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.Skills ul {
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.Skills li {
+    float: left;
+    transition: 0.5s;
+    margin-left: 35px;
+}
+
+.Skills img {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 70%;
+    height: 80px;
+    transition: 0.5s;
 }
 
 a {
