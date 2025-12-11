@@ -5,38 +5,7 @@ body {
     background-position: center;
     background-color: rgb(68, 67, 67);
     background-blend-mode: overlay;
-}
-
-.Home {
-     color: white;
-     padding-left: 8%;
-     padding-top: 12%;
-}
-.Home h1 {font-family:'Franklin Gothic Medium', 'Arial bold', Arial, sans-serif}
-
-.Home button {
-    background: none;
-
-    min-width: 20%;
-    min-height: 40px;
-    width: auto;
-    height: auto;
-
     text-align: center;
-    color: white;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: large;
-    
-
-    border: 1px;
-    border-style: solid;
-    border-color: white;
-    border-radius: 80px;
-}
-
-.Home button:hover {
-    color: lab(76.08% 21.33 79.71);
-    border-color: lab(76.08% 21.33 79.71);
 }
 
 /* Header */
@@ -101,15 +70,19 @@ body {
     transition: 0.5s;
 }
 
+/* Site Wide Profile Images */
+
 #ProfileIMG {
     border-radius: 180px;
     border-style: solid;
     border-width: 2.5px;
     border-color: black;
     clip-path: circle();
-    width: 15%;
+    width: 10%;
+    /* margin-right: 5%; */
 }
 
+/* Footer */
 footer {
     background-color: rgba(49, 48, 48, 0.82);
     margin-top: 30px;
