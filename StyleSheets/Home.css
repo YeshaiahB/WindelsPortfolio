@@ -67,6 +67,7 @@
 }
 
 .GameDisplayBox {
+    text-align: center;
     display: inline-block;
     min-width: 70%;
     min-height: 280px;
@@ -75,7 +76,6 @@
     background-color: rgb(47, 48, 47);
 
     border-radius: 16px;
-    text-align: left;
 
     border: 2px;
     border-color: black;
@@ -87,7 +87,6 @@
     list-style-type: none;
     margin: 0;
     padding: 20px;
-    text-align: center;
     transition: 0.5s;
 }
 
@@ -119,6 +118,7 @@
 .Skills {
     display: inline-block;
     text-align: center;
+    justify-content: center;
 
     background-color: rgb(47, 48, 47);
 
@@ -137,14 +137,13 @@
 .Skills ul {
     list-style-type: none;
     display: flex;
-    text-align: center;
     transition: 0.5s;
+    justify-content: center;
 }
 
 .Skills li {
     float: left;
     transition: 0.5s;
-    margin-left: 35px;
 }
 
 .Skills img {
@@ -162,7 +161,34 @@ a {
     transition: 0.5s;
 }
 
-a:hover {
+#Summary a:hover {
     font-size: 20px;
+    transition: 0.5s; 
+}
+
+a:hover {
+    /* font-size: 20px; */
     transition: 0.5s;
+}
+
+@media (max-width: 800px){
+
+    .GameDisplayBox ul {
+        display: block;
+    }
+
+    .Skills ul {
+       display: block;
+    }
+
+    .Skills li {
+        margin-left: 15px;
+        margin-right: 9px;
+        margin-bottom: 5px;
+    }
+
+    .Skills img {
+        width: 70%;
+        height: 40px;
+    }
 }
